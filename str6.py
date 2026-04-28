@@ -1,0 +1,5 @@
+my_str = input("Enter string in lowercase : ")
+My_str = my_str.upper()
+my_list = My_str.split(" ")
+print("Your string in upppercase>> ")
+print(my_list)
