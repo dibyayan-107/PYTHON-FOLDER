@@ -1,20 +1,25 @@
 #Basic Calculator
 
 #User input
-operator = input("Enter operator(+,-,*,/,^) : ")
+while True:
+    operator = input("Enter operator(+,-,*,/,^) :- ")
+    if operator not in ["+", "-", "*", "/", "^"]:
+        print("Invalid Operator!")
+    else:
+        break
 while True:
     try:
-        n1 = int(input("Enter first value :- "))
+        n1 = float(input("Enter first value :- "))
         break
     except ValueError:
-        print("Please enter integer value!!")
+        print("Invalid value!!")
         
 while True:
     try:
-        n2 = int(input("Enter first value :- "))
+        n2 = float(input("Enter second value :- "))
         break
     except ValueError:
-        print("Please enter integer value!!")
+        print("Invalid value!!")
 
 # Operation
 if operator == "+":
@@ -31,13 +36,11 @@ elif operator == "*":
 
 elif operator == "/":
     try:
-      result = n1 / n2
-      print(f"{n1} / {n2} = {result}")
+        result = n1 / n2
+        print(f"{n1} / {n2} = {result}")
     except ZeroDivisionError as x:
-       print("Error Code : ", x)
+        print("Error Code : ", x)
     
 elif operator == "^":
     result = n1 ** n2
     print(f"{n1} ^ {n2} = {result}")
-else:
-    print(f"{operator} is invalid operator😐")
