@@ -22,6 +22,7 @@ try:
 except ValueError as x:
     print("Error code :- ",x)
     exit()
+    
 p1 = Person(age)
 print("Current state> ",p1.am_I_Old())
 p1.year_passes()

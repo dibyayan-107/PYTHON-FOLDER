@@ -1,4 +1,4 @@
-# Student record management (mini project)
+# Student record management system(mini project)
 my_dict = {}                                         # Global variable
 
 def Add_student():                                   # Function call to Add_student()
@@ -9,6 +9,7 @@ def Add_student():                                   # Function call to Add_stud
       try:
          marks = int(input("Enter student marks(%): "))
          my_dict.update({name : marks})
+
       except ValueError:
          print("Please enter digit only!!")
 
@@ -16,11 +17,13 @@ def Add_student():                                   # Function call to Add_stud
 def Delete_student():                                 # Function call to Delete_student()
     s = input("Delete whole student record?(y/n) : ") 
     if s == 'y' or s == 'Y':
+
       if my_dict == {}:
         print("Nothing to delete because student record is empty!!")
       else:
         my_dict.clear()
         print("Student record is cleared successfully!")
+
     elif s == 'n' or s == 'N':
       key = input("Enter student name to delete : ")
       remove = my_dict.pop(key, None)
@@ -28,6 +31,7 @@ def Delete_student():                                 # Function call to Delete_
         print("Student name is not found!")
       else:
         print("Student name is deleted successfully!") 
+        
     else:
       print("Invalid option!")
 
