@@ -1,21 +1,23 @@
-import tkinter as tk
+import customtkinter as ctk
 
-# Create window
-root = tk.Tk()
-root.title("My First GUI")
-root.geometry("600x300")
+app = ctk.CTk()
+app.geometry("300x400")
 
-# Function
-def say_hello():
-    label.config(text="Hello...this is my first GUI😄")
+title = ctk.CTkLabel(master=app, text="Login System", font=("Arial", 24))
+title.pack(pady=30)
 
-# Button
-button = tk.Button(root, text="Click Me", command=say_hello)
-button.pack(pady=20)
+username = ctk.CTkEntry(master=app, placeholder_text="Username")
+username.pack(pady=20)
 
-# Label
-label = tk.Label(root, text="")
-label.pack()
+password = ctk.CTkEntry(master=app, placeholder_text="Password", show="*")
+password.pack(pady=10)
 
-# Run app
-root.mainloop()
+def login():
+       
+       user = username.get()
+       print(f"Welcome {user}")
+
+btn = ctk.CTkButton(master=app, text="Login", command=login, fg_color="red", hover_color="green",corner_radius=20)
+btn.pack(pady=20)
+
+app.mainloop()
