@@ -26,7 +26,7 @@ while True:
       B1.debited(amnt)
       break
    elif x.lower() == 'n':
-      print("Ok!Then get lost.")
+      print("Decision done by user!")
       break
    else:
       print("Invalid choice!")
@@ -38,7 +38,7 @@ while True:
       B1.credited(amnt)
       break
    elif m.lower() == 'n':
-      print("Ok!Then get lost.")
+      print("Decision done by user!")
       break
    else:
       print("Invalid choice!")

@@ -12,14 +12,14 @@ def check_id(_id):
 def format_rule():
    print("<**Book id format should be like #B(int)**>")
 
-#Adding book record in library
+#--------Adding book record in library---------#
 def add_book():
     format_rule()
     book_id = input("Enter book ID : ")
     if check_id(book_id):
         if book_id in library:
-          print("This book already exists!!")
-          return
+            print("This book already exists!!")
+            return
         else:
             book_name = input("Enter title of the book : ")
             if book_name.isdigit():
@@ -42,7 +42,8 @@ def add_book():
             {
              "title" : book_name, 
              "author" : book_author, 
-             "quantity" : book_quantity
+             "quantity" : book_quantity,
+             "max_quantity" : book_quantity
             }
             })
     else:
@@ -51,21 +52,22 @@ def add_book():
     print("Book added successfully in library!!")
 
 
-#Deleting book record from library
+#---------Deleting book record from library----------#
 def delete_book():
     format_rule()
     book_id = input("Enter book ID to delete : ")
     if check_id(book_id):
-      if book_id not in library:
-         print("Sorry!This book doesn't exist in library!!")
-      else:
-         library.pop(book_id)
-         print("The record of the Book is deleted successfully from library!!") 
+        if book_id not in library:
+           print("Sorry!This book doesn't exist in library!!")
+        else:
+           library.pop(book_id)
+           print("The record of the Book is deleted successfully from library!!") 
     else:
-       print("This book id format is not valid!!")   
+       print("This book id format is not valid!!")  
+       return 
 
 
-#Issuing book from library
+#----------Issuing book from library-------------#
 def issue_book():
     format_rule()
     book_id = input("Enter book ID to issue : ")
@@ -88,25 +90,28 @@ def issue_book():
       return
 
 
-#Returning book to the library
+#----------Returning book to the library------------#
 def return_book():
     format_rule()
     book_id = input("Enter book ID to return : ")
     if library == {}:
-       print("Oops! Book record is empty!!")
-       return
+        print("Oops! Book record is empty!!")
+        return
     if check_id(book_id):
-       if book_id not in library:
-         print("Sorry!This book is never issued!!")
-       else:
-         library[book_id]["quantity"] += 1
-         print("Book returned successfully!!")
+        if book_id not in library:
+           print("Sorry!This book is never issued!!")
+        else:
+            if library[book_id]["quantity"] < library[book_id]["max_quantity"]:
+               library[book_id]["quantity"] += 1
+               print("Book returned successfully!!")
+            else:
+               print("All books already returned!!")
     else:
         print("This book id format is not valid!!")
         return
 
 
-#Searching a particular book in library
+#-----------Searching a particular book in library-----------#
 def search_book():
     format_rule()
     if library == {}:
@@ -142,9 +147,7 @@ def search_book():
        print("Invalid Choice!")
                
        
-    
-
-#Displaying all book record from library
+#-----------Displaying all book record from library----------#
 def display():
     if library == {}:
         print("Nothing to show!! Book record is empty!!")
@@ -157,7 +160,7 @@ def display():
              print(f"Quantity : {library[book_id]['quantity']}")
              print("\n")
 
-
+#-------------Main program-----------#
 choice = 0
 while True:
     print("\tMenu\t\n1.<Add book>\n2.<Delete book>\n3.<Issue book>\n4.<Return book>\n5.<Search book>\n6.<Display>\n7.<Exit>")
