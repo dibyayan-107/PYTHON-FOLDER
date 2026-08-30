@@ -1,4 +1,4 @@
-#Basic library management system (Mini project)
+#Basic library management system (Mini project only CUI)
 library = {}
 sub_id = "#B"
 
