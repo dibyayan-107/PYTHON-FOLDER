@@ -1,4 +1,4 @@
-#gram checker
+#Anagram checker
 s1 = input("Enter first string : ")
 s2 = input("Enter second string : ")
 
@@ -11,9 +11,9 @@ if n == len(s2):
         if item in s2 and (s1.count(item) == s2.count(item)):
             continue
         else:
-            print("Two strings are not grams!!")
+            print("Two strings are not anagrams!!")
             exit()
 else: 
-    print("Two strings are not grams!!")
+    print("Two strings are not anagrams!!")
     exit()
-print("Congrats!!Two strings are grams!!")
+print("Congrats!!Two strings are anagrams!!")
